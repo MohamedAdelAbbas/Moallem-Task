@@ -7,9 +7,16 @@
 //
 
 import UIKit
+import AVFoundation
+import AVKit
 
 class DetailsVC: UIViewController {
 
+    var player: AVPlayer!
+       var playerLayer: AVPlayerLayer!
+       var video: Video!
+      
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
