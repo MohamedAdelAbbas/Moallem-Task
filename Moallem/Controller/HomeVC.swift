@@ -14,10 +14,13 @@ class HomeVC: UIViewController {
     @IBOutlet private weak var videoCollectionView: UICollectionView!
     fileprivate let subjectTypeIdentifier = "SubjectCollectionViewCell"
     fileprivate let videoCellIdentifier = "VideoCollectionViewCell"
+    final var navBar: UINavigationBar{
+        return self.navigationController!.navigationBar
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavController()
-       collectionViewsConfig()
+        collectionViewsConfig()
         
         
     }
@@ -25,13 +28,34 @@ class HomeVC: UIViewController {
     func setupNavController(){
         // Customize the navigation bar
         
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.largeTitleTextAttributes = [
-            NSAttributedString.Key.foregroundColor : UIColor(red: 58, green: 175, blue: 68, alpha: 1)
+        navBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navBar.shadowImage = UIImage()
+        navBar.barStyle = UIBarStyle.default
+        navBar.prefersLargeTitles = false
+        
+        // MARK: right Button
+        let rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(named: "menu2"),
+            style: .done, target: self,
+            action: #selector(rightSideBarButtonItemTapped(_:)))
+        navigationItem.rightBarButtonItem = rightBarButtonItem
+        navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "tintColor")
+        
+        
+        let title = "Moallem"
+        let titleAttributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.init(name: "Helvetica-Bold", size: 31)!,
+            .foregroundColor : UIColor(named: "tintColor")!
         ]
+        let leftBarBtnItem = UIBarButtonItem(title: title, style: .done, target: self, action: nil)
+        leftBarBtnItem.setTitleTextAttributes(titleAttributes, for: .normal)
+        navBar.topItem?.leftBarButtonItem = leftBarBtnItem
+        
     }
-
+    @objc func rightSideBarButtonItemTapped(_ sender: UIBarButtonItem!) {
+        
+    }
+    
     
     func collectionViewsConfig(){
         
@@ -52,7 +76,7 @@ class HomeVC: UIViewController {
     
 }
 
-extension HomeVC : UICollectionViewDelegate, UICollectionViewDataSource {
+extension HomeVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == subjectCollectionView {
             return database.count
@@ -67,7 +91,7 @@ extension HomeVC : UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if collectionView == subjectCollectionView {
-           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: subjectTypeIdentifier, for: indexPath) as! SubjectCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: subjectTypeIdentifier, for: indexPath) as! SubjectCollectionViewCell
             cell.setupCell(model: database[indexPath.row])
             return cell
         } else {
@@ -79,7 +103,7 @@ extension HomeVC : UICollectionViewDelegate, UICollectionViewDataSource {
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == subjectCollectionView {
-            return CGSize(width: 100, height: 150)
+            return CGSize(width: 111, height: 153)
         }
         return CGSize(width: 175, height: 126)
     }
@@ -93,6 +117,8 @@ extension HomeVC : UICollectionViewDelegate, UICollectionViewDataSource {
             navigationController?.pushViewController(vc, animated: true)
         }
     }
+    
+    
     
     
     
