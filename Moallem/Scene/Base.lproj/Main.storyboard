@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="41j-oc-x9E">
-    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -26,7 +26,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cz3-ot-hCh">
-                                <rect key="frame" x="16" y="368" width="135.33333333333334" height="36"/>
+                                <rect key="frame" x="16" y="368" width="135.5" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="yGB-Wc-E9l"/>
                                 </constraints>
@@ -99,21 +99,6 @@ Continue learning?</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="637.68115942028987" y="103.79464285714285"/>
-        </scene>
-        <!--DetailsVC-->
-        <scene sceneID="lgw-8Q-sTR">
-            <objects>
-                <viewController id="knU-Rr-9gN" customClass="DetailsVC" customModule="Moallem" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="TyZ-GA-3Mv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="cb4-cV-h53"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="o2X-Oe-yrR" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1515.9420289855075" y="103.79464285714285"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SIL-kS-vkV">
