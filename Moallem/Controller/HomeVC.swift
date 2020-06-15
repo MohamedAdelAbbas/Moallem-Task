@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
 
 class HomeVC: UIViewController {
     
@@ -17,6 +19,10 @@ class HomeVC: UIViewController {
     final var navBar: UINavigationBar{
         return self.navigationController!.navigationBar
     }
+    var player = AVPlayer()
+    var playerViewController = AVPlayerViewController()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavController()
@@ -110,16 +116,21 @@ extension HomeVC : UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == videoCollectionView {
-            let vc = DetailsVC()
-            let selectedVideo = videoDB[indexPath.row]
-            vc.modalPresentationStyle = .fullScreen
-            vc.video = selectedVideo
-            navigationController?.pushViewController(vc, animated: true)
+            collectionView.deselectItem(at: indexPath, animated: true)
+            playVideo(at: indexPath)
+            
         }
     }
     
     
-    
+    func playVideo(at indexPath: IndexPath){
+        // let selectedVideo = videoDB[indexPath.row]
+        let videoPath = Bundle.main.path(forResource: "Demo 1", ofType: "mp4")
+        let videoPathURl = URL(fileURLWithPath: videoPath!)
+        player = AVPlayer(url: videoPathURl)
+        playerViewController.player = player
+        self.present(playerViewController, animated: true, completion: nil)
+    }
     
     
     

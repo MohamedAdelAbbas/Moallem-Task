@@ -15,9 +15,9 @@ struct Video {
 
 
 let videoDB: [Video] = [
-    Video(imageName: "overlay", url: URL(fileURLWithPath: Bundle.main.path(forResource: "Demo 2", ofType: "mp4")!)),
-    Video(imageName: "overlay", url: URL(fileURLWithPath: Bundle.main.path(forResource: "Demo 2", ofType: "mp4")!)),
-    Video(imageName: "overlay", url: URL(fileURLWithPath: Bundle.main.path(forResource: "Demo 2", ofType: "mp4")!)),
-    Video(imageName: "overlay", url: URL(fileURLWithPath: Bundle.main.path(forResource: "Demo 2", ofType: "mp4")!))
+    Video(imageName: "overlay", url: URL(fileURLWithPath: Bundle.main.path(forResource: "Demo 1", ofType: "mp4")!)),
+    Video(imageName: "overlay", url: URL(fileURLWithPath: Bundle.main.path(forResource: "Demo 1", ofType: "mp4")!)),
+    Video(imageName: "overlay", url: URL(fileURLWithPath: Bundle.main.path(forResource: "Demo 1", ofType: "mp4")!)),
+    Video(imageName: "overlay", url: URL(fileURLWithPath: Bundle.main.path(forResource: "Demo 1", ofType: "mp4")!))
     
 ]

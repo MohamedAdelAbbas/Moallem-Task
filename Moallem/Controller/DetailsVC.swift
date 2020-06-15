@@ -7,13 +7,13 @@
 //
 
 import UIKit
-import AVFoundation
 import AVKit
+import AVFoundation
+
 
 class DetailsVC: UIViewController {
 
-    var player: AVPlayer!
-       var playerLayer: AVPlayerLayer!
+    
        var video: Video!
       
     
